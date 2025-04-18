@@ -58,14 +58,31 @@ public class ProductController {
 
     // TODO: API to search products by name
 
+    @GetMapping("/search")
+    public List<Product> searchByName(@RequestParam String name) {
+        return productService.searchByName(name);
+    }
 
     // TODO: API to filter products by category
+    @GetMapping("/filter/category")
+    public List<Product> filterByCategory(@RequestParam String category) {
+        return productService.filterByCategory(category);
+    }
 
 
     // TODO: API to filter products by price range
+    @GetMapping("/filter/price")
+    public List<Product> filterByPrice(@RequestParam Double minPrice, @RequestParam Double maxPrice) {
+        return productService.filterByPriceRange(minPrice, maxPrice);
+    }
 
 
     // TODO: API to filter products by stock quantity range
+
+    @GetMapping("/filter/stock")
+    public List<Product> filterByStock(@RequestParam Integer minStock, @RequestParam Integer maxStock) {
+        return productService.filterByStockRange(minStock, maxStock);
+    }
 
 
 }

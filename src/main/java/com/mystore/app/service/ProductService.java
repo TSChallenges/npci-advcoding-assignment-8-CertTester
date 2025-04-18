@@ -50,15 +50,27 @@ public class ProductService {
     }
 
     // TODO: Method to search products by name
+    public List<Product> searchByName(String name) {
+        return productRepository.findByNameContainingIgnoreCase(name);
+    }
 
 
     // TODO: Method to filter products by category
+    public List<Product> filterByCategory(String category) {
+        return productRepository.findByCategoryIgnoreCase(category);
+    }
 
 
     // TODO: Method to filter products by price range
 
+    public List<Product> filterByPriceRange(Double minPrice, Double maxPrice) {
+        return productRepository.findByPriceBetween(minPrice, maxPrice);
+    }
 
     // TODO: Method to filter products by stock quantity range
 
+    public List<Product> filterByStockRange(Integer minStock, Integer maxStock) {
+        return productRepository.findByStockQuantityBetween(minStock, maxStock);
+    }
 
 }
